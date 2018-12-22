@@ -1,0 +1,47 @@
+{
+	"name": "open-dids",
+	"version": "1.0.0",
+	"description": "",
+	"types": "types/index",
+	"main": "lib/index",
+	"scripts": {
+		"_preinstall": "cd __ecosystem-utils && node _preinstall.js && cd ..",
+		"preinstall": "npm run _preinstall",
+		"_postinstall": "cd __ecosystem-utils && node _postinstall.js && cd ..",
+		"postinstall": "npm run build:min && npm run _postinstall",
+		"start": "node lib/index.js",
+		"start:ts": "ts-node src/index.ts",
+		"minify": "cd __ecosystem-utils && node __minifier.js && cd ..",
+		"build": "tsc -p .",
+		"build:live": "nodemon --watch \"src/**/*.*\" --exec \"npm run start\"",
+		"build:min": "npm run build && npm run minify",
+		"build:min:start": "npm run build && npm run minify && npm run start",
+		"b": "npm run build",
+		"bl": "npm run build:live",
+		"bm": "npm run build:min",
+		"bms": "npm run build:min:start",
+		"_bm_s": "npm run _preinstall && npm run bm && npm run _postinstall && npm run start",
+		"_bms_": "npm run _preinstall && npm run bms && npm run _postinstall",
+		"doc": "typedoc --theme default --hideGenerator --out doc/ src/index.ts",
+		"lint": "tslint --config ./tslint.json -p . --fix --force",
+		"prettify": "prettier --config ./.prettierrc.json --write \"./{src,types}/**/*.ts\"",
+		"prettify:lint": "npm run prettify && npm run lint",
+		"pl": "npm run prettify:lint",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "UNLICENSED",
+	"devDependencies": {
+		"node-minify": "^3.6.0",
+		"nodemon": "^1.18.5",
+		"typescript": "^3.1.6"
+	},
+	"dependencies": {
+		"@types/node": "^10.12.15",
+		"fs": "0.0.1-security",
+		"path": "^0.12.7",
+		"ts-node": "^7.0.1",
+		"typedoc": "^0.13.0"
+	}
+}

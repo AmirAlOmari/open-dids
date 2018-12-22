@@ -1,0 +1,10 @@
+node_modules
+_workspace
+static
+types
+lib
+doc
+
+{ PREINSTALL_TIMESTAMP_START }
+
+!**/.gitkeep

@@ -1,0 +1,20 @@
+{
+	"defaultSeverity": "error",
+	"extends": ["tslint:recommended"],
+	"jsRules": {},
+	"rules": {
+		"no-var-requires": false,
+		"no-console": false,
+		"no-string-literal": false,
+		"one-line": false,
+		"no-unused-expression": false,
+		"no-empty": false,
+		"prefer-for-of": false,
+		"interface-name": [true, "never-prefix"],
+		"indent": [true, "tabs", 4],
+		"array-type": [true, "generic"],
+		"variable-name": [true, "ban-keywords", "allow-leading-underscore"],
+		"max-line-length": [true, 256]
+	},
+	"rulesDirectory": []
+}
